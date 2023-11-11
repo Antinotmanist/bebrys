@@ -32,4 +32,3 @@ item4 = Item('Mouse', 50, 5)
 item5 = Item('Keyboard', 75, 5)
 
 print(Item.all)
-# хуй
