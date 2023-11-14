@@ -45,24 +45,22 @@ class Item:
             return False
 
     def __repr__(self):
-        return f'Item("{self.name}", {self.price}, {self.quantity})'
+        return f'{self.__class__.__name__}("{self.name}", {self.price}, {self.quantity})'
     
 class Phone(Item):  # наследование класса
-    def __init__(self, name: str, price: float, quantity=0, broken_phones=0):
+       def __init__(self, name: str, price: float, quantity=0, broken_phones=0):
+        # Call to super finction yo have acces atr
+        super().__init__(
+            name, price, quantity
+        )
         # assert делает утверждение которое должно выполняться
-        assert price >= 0, f'Ваша цена {price} не входит в нужные условия'
-        assert quantity >= 0, f'идиот'
+        
         assert broken_phones >= 0, f'Сломанный телефон {broken_phones} не входит в состояния 0 или 1'
 
-        self.name = name
-        self.price = price
-        self.quantity = quantity
         self.broken_phones = broken_phones
 
-        # Actions to execute
-        Item.all.append(self)
 
-phone1 = Phone('BebraPhoneX',500,5)
-phone1.broken_phones = 1
-phone2 = Phone('BebraPhoneXPRO',700,5)
-phone2.broken_phones = 1
+phone1 = Phone('BebraPhoneX',500,5,1)
+
+print(Item.all)
+print(Phone.all)
