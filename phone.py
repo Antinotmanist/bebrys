@@ -1,3 +1,6 @@
+from item import Item
+
+
 class Phone(Item):  # наследование класса
        def __init__(self, name: str, price: float, quantity=0, broken_phones=0):
         # Call to super finction yo have acces atr
